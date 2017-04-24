@@ -1,0 +1,108 @@
+
+.container {
+  margin: 20px auto;
+  width: 90%;
+  min-height: 1000px;
+  /*max-height: 1000px;*/
+  padding: 0px 20px 20px 20px;
+  /*border: 1px dotted black;*/
+  font-family: 'Source Code Pro', monospace;
+  font-weight: black;
+  display: block;
+}
+th {
+  text-align: left;
+}
+h1, h3{
+  font-size: 300%;
+  color: #a80101;
+  text-align: center;
+}
+.login{
+  float: left;
+  display: block;
+  min-height: 300px;
+ /* max-height: 100%;*/
+  margin-right: 30px;
+}
+.versal{
+  font-variant: small-caps;
+}
+
+.messages, .error{
+  text-align: center;
+  color: blue;
+  font-family: Arial;
+
+}
+.error{
+  color:red;
+}
+h3.logo{
+ font-size: 150%;
+ text-align: left;
+}
+
+nav {
+  float: right;
+  width:800px;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+ul {
+  list-style:none;
+}
+nav ul li{
+  display:block;
+  height: 20px;
+  float:right;
+  margin-right: 2px;
+  padding:10px 28px;
+} 
+
+nav li a {
+  color: #566377; 
+  text-decoration:none;  
+}
+
+nav li a:hover {
+  color:black;
+}
+
+nav li ul {
+  display:none;
+  position:absolute;
+  min-width:140px;
+}
+nav li ul li{
+  float: none;
+  position: relative;
+  top:18px;
+  left: -120px;
+  text-align: right;
+  width: 80px;
+  margin-bottom: 2px;
+}
+
+nav li:hover > ul {
+  display:block;
+  float: none;
+
+}
+.submenu ul  {
+display: block;
+border: solid 1px #566377;
+background-color: white;
+}
+.submenu li {
+float: none;
+}
+.submenu li a {
+color: #566377; 
+width: 100px;
+}
+.answer_a {
+  color: #E38E20;
+}
+
+

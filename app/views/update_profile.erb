@@ -1,0 +1,31 @@
+<nav>
+  <ul>
+    <li><a href="#"><b><%= @user_login%></b></a>
+      <ul class="submenu">
+        <li><a href="/profile">Profile</a></li>
+        <li><a href="/logout">Close session</a></li>
+      </ul>
+    </li> 
+    <li><a href="/show_users">See all users</a></li> 
+    <li><a href="/secret">Read</a></li>  
+  </ul>
+  <br clear="all">
+</nav>
+<h3 class="logo">Clon de Quora</h3>
+
+<h4>Update your profile</h4>	
+<form action="/update/<%= @edit.id %>" method="post">
+
+    <p> Update your name </p>
+    <input name="name" type="text"  value="<%= @edit.name %>">
+    <br>
+    <p> Update your email </p>
+    <input name="email" type="text"  value="<%= @edit.email %>">
+    <br>
+    <p> Update your password</p>
+    <input name="password" type="text">
+    <br>
+    
+    <br><br>
+    <input type="submit" value="Update">
+</form>

@@ -1,0 +1,9 @@
+   <% ans = Answer.where(responder_id: user.id) %>
+     <%ans.each do |a|%>
+       <%= a.answer%><br>
+     <% end %>
+------------------------
+     <% user.questions_answered.each do |q| %>
+   <%= q.answer %><br>
+
+  <% end %>

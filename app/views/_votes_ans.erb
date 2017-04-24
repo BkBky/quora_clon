@@ -1,0 +1,20 @@
+    <p>estos son los likes del<%= @ans_like%></p>
+    <p>estos son los unlikes del<%= @ans_unlike%></p>
+    <% @quest_id.each do |quest|%>
+      <h4><%= quest.id %>. <%= quest.question %></h4>
+      <% quest.answers.each_with_index do |ans, index|%>
+        <p><%= index+1 %>. <%= ans.answer%></p>
+        
+        <a class="vote_like_ans" href="/like_ans/" value="<%=ans.id%>"><button id="like_vote_ans<%=ans.id%>" value="<%= ans.answer_votes.where(like: 1).count %>">Like:<%= ans.answer_votes.where(like: 1).count %>
+        </button></a>   
+        <a class="vote_unlike_ans" href="/unlike_ans/" value="<%=ans.id%>"><button id="unlike_vote_ans" value="<%= ans.answer_votes.where(unlike: 1).count %>">Unlike:<%= ans.answer_votes.where(unlike: 1).count %></button></a><br> <br> 
+      <% end%><!-- end of iteration quest_d -->
+
+ 
+
+      <form method="post" action="/create_answer/<%=quest.id %>">
+        <textarea placeholder="Escribe una respuesta" name="answer" cols="70"></textarea><br><br>
+        <input type="submit" value="Send answer">
+      </form>
+    
+    <% end%> <!-- end of iteration quest_d -->

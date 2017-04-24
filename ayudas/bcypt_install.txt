@@ -1,0 +1,47 @@
+para hacer funcionar el BCrypt
+
+1.En models/ user.rb agregué: include BCrypt
+
+y este código:
+def password
+    @password ||= Password.new(password_digest)
+  end
+
+ def password=(user_password)
+   @password = Password.create(user_password)
+   self.password_digest = @password
+ end
+
+  #método de autenticación
+  def self.authenticate(email, user_password)
+    user = User.find_by(email: email)
+    if user && (user.password == user_password)
+      return user
+    else
+      nil
+    end
+  end
+
+
+también podría revisar esta documentacion: 
+https://github.com/codahale/bcrypt-ruby/blob/master/README.md
+
+2. require 'bcrypt'
+
+3.en Gemfile: gem 'bcrypt'
+4. instalar desde consola el "gem install bcrypt" 
+5. y podría actualizarlo con :
+http://stackoverflow.com/questions/18968330/why-wont-the-bcrypt-ruby-gem-install-properly
+
+Actually a simple:
+
+gem install bundler
+gem install bcrypt-ruby
+and then:
+
+bundle update bcrypt-ruby
+or bundle update bcrypt
+
+
+
+

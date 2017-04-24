@@ -1,0 +1,31 @@
+<nav>
+  <ul>
+    <li><a href="#"><b><%= @user_login%></b></a>
+      <ul class="submenu">
+        <li><a href="/profile">Profile</a></li>
+        <li><a href="/logout">Close session</a></li>
+      </ul>
+    </li> 
+    <li><a href="/show_users">See all users</a></li> 
+    <li><a href="/secret">Read</a></li>  
+  </ul>
+  <br clear="all">
+</nav>
+<h3 class="logo">Clon de Quora</h3> 
+
+<div>  
+  <% @quest_id.each do |quest|%>
+
+    <h4><%= quest.id %>. <%= quest.question %></h4>
+    <% quest.answers.each_with_index do |ans, index|%>
+      <p><%= index+1 %>. <%= ans.answer%></p>
+      <a href="/like_ans/<%=ans.id%>"><button id="like_vote" type="button">Likes: <%=ans.answer_votes.where(like: 1).count%></button></a>   
+      <a href="/unlike_ans/<%=ans.id%>"><button id="unlike_vote" type="button">Unlikes: <%=ans.answer_votes.where(unlike: 1).count%></button></a><br> <br> 
+    <% end%><!-- end of iteration quest.answers -->
+    <form method="post" action="/create_answer/<%=quest.id %>">
+      <textarea placeholder="Escribe una respuesta" name="answer" cols="70"></textarea><br><br>
+      <input type="submit" value="Send answer">
+    </form>
+    
+  <% end%> <!-- end of iteration quest_id -->
+</div>

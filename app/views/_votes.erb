@@ -1,0 +1,9 @@
+<p>son total likes: <%= @quest_like %></p>
+<p>son total unlike: <%= @quest_unlike %></p>
+<% @question.reverse.each do |quest|%>
+  <h4> 
+    <a href="/show_question/<%= quest.id %>"><%= quest.id %>. <%= quest.question %></a><br> 
+  </h4>
+  <a class="vote_like" href="/like/" value="<%=quest.id%>"><button id="session<%=quest.id%>" value="<%=quest.question_votes.where(like: 1).count%>">Like: <%=quest.question_votes.where(like: 1).count%></button></a>   
+  <a class="vote_unlike" href="/unlike/" value="<%=quest.id%>"><button id="unlike<%=quest.id%>">Unlike: <%=quest.question_votes.where(unlike: 1).count%></button></a><br> <br>       
+<% end %>

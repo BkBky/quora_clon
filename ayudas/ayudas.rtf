@@ -1,0 +1,33 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww10800\viewh5200\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\f0\fs24 \cf0 bundle update\
+Para crear archivos en carpeta model\
+$ rake generate:model NAME=User\
+$ rake generate:model NAME=Question\
+$ rake generate:model NAME=Answer\
+$ rake generate:model NAME=AnswerVote\
+$ rake generate:model NAME=QuestionVote\
+$ rake generate:model NAME=UserVote\
+\
+\
+\
+\
+\
+Para crear archivos de db/migrate\
+$ rake generate:migration NAME=create_users\
+$ rake generate:migration NAME=create_questions\
+$ rake generate:migration NAME=create_answers\
+$ rake generate:migration NAME=create_question_votes\
+$ rake generate:migration NAME=create_answer_votes\
+$ rake generate:migration NAME=create_user_votes\
+\
+$ shotgun config.ru\
+\
+http://localhost:9393/\
+\
+\
+}

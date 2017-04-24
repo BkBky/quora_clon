@@ -1,0 +1,17 @@
+<nav>
+  <ul>
+    <li><a href="#"><b><%= @user_login%></b></a>
+      <ul class="submenu">
+        <li><a href="/profile">Profile</a></li>
+        <li><a href="/logout">Close session</a></li>
+      </ul>
+    </li> 
+    <li><a href="/show_users">See all users</a></li> 
+    <li><a href="/secret">Read</a></li>  
+  </ul>
+  <br clear="all">
+</nav>
+<h3 class="logo">Clon de Quora</h3> 
+<div id= "vote_ans"> 
+   <%= erb :_votes_ans, layout: false %> 
+</div>

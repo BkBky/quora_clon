@@ -1,0 +1,41 @@
+<nav>
+  <ul>
+    <li><a href="#"><b><%= @user_login%></b></a>
+      <ul class="submenu">
+        <li><a href="/profile">Profile</a></li>
+        <li><a href="/logout">Close session</a></li>
+      </ul>
+    </li> 
+    <li><a href="/show_users">See all users</a></li> 
+    <li><a href="/secret">Read</a></li>  
+  </ul>
+  <br clear="all">
+</nav>
+<h3 class="logo">Clon de Quora</h3>
+
+<% @profile_user.each do |user| %>
+  <h1><%= user.name %></h1>
+
+  <h4>You can update your profile here:</h4>
+   <a href="/update/<%= user.id %>">Edit</a>
+
+  <h4>Your questions:</h4>
+  <% quest = Question.where(user_id: user.id)%>
+  <% quest.each do |q| %>
+      <%= q.question%><br>
+  <% end %>
+  <p>------------------------</p>
+  <h4>Your answers</h4>
+  <% ans = Answer.where(responder_id: user.id) %>
+    <%ans.each do |a|%>
+      <%quest2 = Question.where(id: a.question_id)%>
+      <% quest2.each do |q2|%>
+        <%= q2.question%><br>
+      <% end %>
+      <span class="answer_a">Tu respuesta fue:</span> <%= a.answer%><br>
+    <% end %>
+  <%end%>
+  
+
+
+

@@ -1,0 +1,17 @@
+CodeaCamp09s-Mac-mini:04_clon_quora codea_mac_09$ rake console
+irb(main):001:0> User.last
+D, [2017-04-07T19:47:17.201628 #9657] DEBUG -- :   User Load (0.5ms)  SELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1  [["LIMIT", 1]]
+=> #<User id: 3, name: "Fausto", email: "f@gmail.com", password_digest: "$2a$10$sVqT0qNDmh/APfgmubJBIenk09qggiwEnXsFTGwmbCc...">
+irb(main):002:0> User.last.questions_answered
+D, [2017-04-07T19:47:34.475897 #9657] DEBUG -- :   User Load (0.5ms)  SELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1  [["LIMIT", 1]]
+D, [2017-04-07T19:47:34.496898 #9657] DEBUG -- :   Answer Load (0.5ms)  SELECT "answers".* FROM "answers" WHERE "answers"."responder_id" = $1  [["responder_id", 3]]
+=> #<ActiveRecord::Associations::CollectionProxy [#<Answer id: 3, question_id: 5, responder_id: 3, answer: "Respuesta 3/5 de Erick en pregunta 5">, #<Answer id: 4, question_id: 6, responder_id: 3, answer: "Respuesta 4/5 de Erick en pregunta 6">, #<Answer id: 5, question_id: 7, responder_id: 3, answer: "Respuesta 5/5 de Erick en pregunta 7">]>
+irb(main):003:0> User.last.answers
+D, [2017-04-07T19:47:47.876325 #9657] DEBUG -- :   User Load (0.6ms)  SELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1  [["LIMIT", 1]]
+D, [2017-04-07T19:47:47.893353 #9657] DEBUG -- :   Answer Load (0.8ms)  SELECT "answers".* FROM "answers" INNER JOIN "answer_votes" ON "answers"."id" = "answer_votes"."answer_id" WHERE "answer_votes"."user_id" = $1  [["user_id", 3]]
+=> #<ActiveRecord::Associations::CollectionProxy [#<Answer id: 1, question_id: 3, responder_id: 1, answer: "Respuesta 1/5 de Erick en pregunta 3">, #<Answer id: 2, question_id: 4, responder_id: 2, answer: "Respuesta 2/5 de Erick en pregunta 4">, #<Answer id: 2, question_id: 4, responder_id: 2, answer: "Respuesta 2/5 de Erick en pregunta 4">, #<Answer id: 3, question_id: 5, responder_id: 3, answer: "Respuesta 3/5 de Erick en pregunta 5">, #<Answer id: 6, question_id: 4, responder_id: 2, answer: "Respuesta 1/2 de Fausto en pregunta 4">]>
+irb(main):004:0> Answer.find(7).responder
+D, [2017-04-07T19:48:12.349458 #9657] DEBUG -- :   Answer Load (0.5ms)  SELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT $2  [["id", 7], ["LIMIT", 1]]
+D, [2017-04-07T19:48:12.354814 #9657] DEBUG -- :   User Load (0.4ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2  [["id", 2], ["LIMIT", 1]]
+=> #<User id: 2, name: "Esme", email: "esme@gmail.com", password_digest: "$2a$10$KfbGytzQ4JlquRQMWxU00.E.3g1N7JrVBMF6OoT5LmM...">
+irb(main):005:0> 

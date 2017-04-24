@@ -1,0 +1,20 @@
+$(document).ready(function() {
+  $(".vote_like").on("click", function(event){
+    console.log("hola en quora 6");
+    // alert($(this).data("id"));
+    var currentQuest = $(this).attr("value");
+    console.log(currentQuest);
+    event.preventDefault();
+    $.get("/like/", {question_id: currentQuest}, function(data){
+      console.log("hola dentro de post");
+      var total_likes = $("#session"+currentQuest).attr("value");
+      console.log($("#session"+currentQuest));
+      // console.log(data);
+      $("#vote").html(data);
+    });
+  });
+
+
+
+
+});

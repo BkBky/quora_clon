@@ -1,0 +1,18 @@
+<nav>
+  <ul>
+    <li><a href="#"><b><%= @user_login%></b></a>
+      <ul class="submenu">
+        <li><a href="/profile">Profile</a></li>
+        <li><a href="/logout">Close session</a></li>
+      </ul>
+    </li> 
+    <li><a href="/show_users">See all users</a></li> 
+    <li><a href="/secret">Read</a></li>  
+  </ul>
+  <br clear="all">
+</nav>
+<h3 class="logo">Clon de Quora</h3>
+<h4>All Users from Quora</h4>
+<% @users.each_with_index do |user, index| %>
+  <%= index+1%>. <%= user.name %><br>
+<% end %>
